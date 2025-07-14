@@ -1,72 +1,82 @@
 # 📊 Zepto Data Analysis Project
 
-Welcome to the **Zepto Data Analysis Project** – a full-fledged data analytics pipeline built using **SQL** and **CSV data processing**. This project showcases the ability to clean, analyze, and extract business insights from a large retail dataset using SQL queries and automation scripts.
+Welcome to the **Zepto Data Analysis Project** – a comprehensive data analytics pipeline built using **SQL** and **CSV data processing**. This project demonstrates the ability to clean, analyze, and derive actionable business insights from a large retail dataset.
 
 ---
 
-## 🧠 Project Description
+## 🧠 Project Overview
 
-This project focuses on analyzing product-level data from Zepto, a fast commerce platform. The dataset contains information about products, prices, discounts, categories, availability, and inventory. The goal is to extract key insights such as:
+This project analyzes product-level data from Zepto, a fast-commerce platform. The dataset includes details about products, prices, discounts, categories, availability, and inventory. The primary objectives are to:
 
-- Most frequent products
-- Products with high MRP but low discounts
-- Category-wise discount trends
-- Missing or inconsistent data entries
-- Overall stock and availability
+- Identify the most frequent products
+- Highlight products with high MRP but low discounts
+- Analyze category-wise discount trends
+- Detect missing or inconsistent data entries
+- Evaluate overall stock and availability
 
-The project uses a combination of:
+The pipeline leverages:
 
-- 📄 A **CSV file** containing raw data (`zepto_v2.csv`)
-- 🧮 An **SQL script** (`Zepto_Script.sql`) with detailed queries and analysis logic
+- 📄 A **CSV file** (`zepto_v2.csv`) containing raw product data
+- 🧮 An **SQL script** (`Zepto_Script.sql`) with queries for cleaning, validation, and analysis
 
 ---
 
-## 📁 Files Included
+## 📁 Project Files
 
-| File Name | Description |
-|-----------|-------------|
-| `zepto_v2.csv` | The main dataset containing product-related information |
-| `Zepto_Script.sql` | SQL queries used to clean, validate, and analyze the dataset |
+| File Name           | Description                                           |
+|---------------------|-------------------------------------------------------|
+| `zepto_v2.csv`      | Raw dataset with product-related information          |
+| `Zepto_Script.sql`  | SQL queries for data cleaning, validation, and analysis |
 
 ---
 
 ## 🛠️ Key Features
 
-- ✅ **Data Cleaning:** Detect and handle NULL or missing values in key fields like name, category, MRP, discounts, etc.
-- 📊 **Descriptive Analysis:** Identify the most duplicated products, most discounted categories, and items with abnormal pricing patterns.
-- 🏷️ **Category Insights:** Find out which categories offer the best discounts on average.
-- 🚫 **Validation Queries:** Filter out rows with incomplete or inconsistent data.
+- ✅ **Data Cleaning**: Identifies and handles NULL or missing values in fields like product name, category, MRP, discount percentage, and more.
+- 📊 **Descriptive Analysis**: Uncovers the most duplicated products, highly discounted categories, and items with unusual pricing patterns.
+- 🏷️ **Category Insights**: Determines which product categories offer the highest average discounts.
+- 🚫 **Data Validation**: Filters out rows with incomplete or inconsistent data.
 
 ---
 
 ## 🧾 Example SQL Queries
 
-- Find duplicate product names:
-  ```sql
-  SELECT name, COUNT(sku_id) AS "Number of SKUs"
-  FROM zepto
-  GROUP BY name
-  HAVING count(sku_id) > 1
-  ORDER BY count(sku_id) DESC;
-  ```
-  
-- Check for missing or null values
-  ```sql
-  SELECT *
-FROM zepto
-WHERE name IS NULL OR category IS NULL OR mrp IS NULL
-   OR discountPercent IS NULL OR discountedSellingPrice IS NULL
-   OR weightInGms IS NULL OR availableQuantity IS NULL
-   OR outOfStock IS NULL OR quantity IS NULL;
-  ```
-  
-## 📌 Tools & Technologies
- - SQL (MariaDB / MySQL)
- - CSV Data Processing
- - Data Cleaning
- - Query Optimization
- - Data Exploration
- 
-## ⭐ If you like this project, feel free to use it as inspiration for your own SQL data analysis work!
+1. **Find Duplicate Product Names**:
+   ```sql
+   SELECT name, COUNT(sku_id) AS "Number of SKUs"
+   FROM zepto
+   GROUP BY name
+   HAVING COUNT(sku_id) > 1
+   ORDER BY COUNT(sku_id) DESC;
+   ```
 
+2. **Check for Missing or NULL Values**:
+   ```sql
+   SELECT *
+   FROM zepto
+   WHERE name IS NULL 
+      OR category IS NULL 
+      OR mrp IS NULL
+      OR discountPercent IS NULL 
+      OR discountedSellingPrice IS NULL
+      OR weightInGms IS NULL 
+      OR availableQuantity IS NULL
+      OR outOfStock IS NULL 
+      OR quantity IS NULL;
+   ```
 
+---
+
+## 🛠️ Tools & Technologies
+
+- **SQL**: MariaDB / MySQL for querying and analysis
+- **CSV Processing**: Handling raw data import and preprocessing
+- **Data Cleaning**: Techniques to ensure data quality
+- **Query Optimization**: Efficient SQL queries for large datasets
+- **Data Exploration**: Extracting meaningful insights from raw data
+
+---
+
+## ⭐ Get Involved
+
+If you find this project inspiring, feel free to use it as a foundation for your own SQL-based data analysis projects! Contributions, feedback, or suggestions are welcome.
